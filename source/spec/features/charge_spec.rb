@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'charges', js: true do
   before(:each) do
-    @charges  = FactoryGirl.create_list(:charge,10)
-    @fails = FactoryGirl.create_list(:fail,5)
+    @charges  = FactoryGirl.create(:charge)
+    @fails = FactoryGirl.create(:fail)
     @disputes =  FactoryGirl.create_list(:dispute,5)
   end
   
