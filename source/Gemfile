@@ -32,15 +32,12 @@ group :development do
   gem 'thin'
 end
 
-group :test do
+group :development, :test do
   gem 'minitest'
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-  gem 'capybara'
-end
-
-group :development, :test do
+  gem 'capybara'  
   gem 'factory_girl_rails'
 end
 
