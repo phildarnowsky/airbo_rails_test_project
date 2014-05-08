@@ -8,4 +8,29 @@ FactoryGirl.define do
     refunded false
     customer
   end
+  
+  factory :charge, class: CreditCard do
+    paid true
+    amount 10
+    currency "usd"
+    refunded false
+    customer
+  end
+
+  factory :fail, class: CreditCard do
+    paid false
+    amount 10
+    currency "usd"
+    refunded false
+    customer
+  end
+  
+  factory :dispute, class: CreditCard do
+    paid true
+    amount 10
+    currency "usd"
+    refunded true
+    customer
+  end
+
 end
