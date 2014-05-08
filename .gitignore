@@ -16,3 +16,4 @@ rerun.txt
 pickle-email-*.html
 .rvmrc
 .gitignore
+source/config/database.yml
