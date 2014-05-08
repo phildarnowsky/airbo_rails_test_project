@@ -3,9 +3,9 @@
 FactoryGirl.define do
   factory :credit_card do
     paid false
-    amount 1
-    currency "MyString"
+    amount 10
+    currency "usd"
     refunded false
-    customer_id 1
+    customer
   end
 end
