@@ -6,6 +6,7 @@ describe ChargesController do
     it "returns http success" do
       get 'index'
       response.should be_success
+      expect(response.status).to eq(200)
     end
   end
 

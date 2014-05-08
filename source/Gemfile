@@ -30,16 +30,18 @@ gem 'therubyracer'
 
 gem 'haml-rails'
 
+
 group :development do
   gem 'thin'
 end
 
 group :development, :test do
+  gem 'capybara'
+  gem 'poltergeist'
   gem 'minitest'
   gem 'rspec-rails'
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
-  gem 'capybara'  
+  gem 'shoulda-matchers'  
   gem 'factory_girl_rails'
 end
 
