@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'therubyracer'
 
+gem 'haml-rails'
+
 group :development do
   gem 'thin'
 end
