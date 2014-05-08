@@ -13,9 +13,9 @@ end
 Capybara.javascript_driver = :poltergeist
 # Capybara.javascript_driver = :poltergeist_debug
 
-Capybara.app_host = 'http://localhost'
-Capybara.default_wait_time = 15
-Capybara.server_port = 31337
+#Capybara.app_host = 'http://localhost'
+Capybara.default_wait_time = 600
+#Capybara.server_port = 31337
 Capybara.default_selector = :css
 
 
