@@ -45,10 +45,10 @@ CreditCard.create([
 #5 should be disputed:
 #  - 3 should be linked to Customer 1
 #  - 2 should be linked to customer 2
-CreditCard.create(
+CreditCard.create([
   {paid: true, amount: 4900, currency: "usd", refunded: true, customer: johny},
   {paid: true, amount: 4900, currency: "usd", refunded: true, customer: johny},
   {paid: true, amount: 4900, currency: "usd", refunded: true, customer: johny},
   {paid: true, amount: 4900, currency: "usd", refunded: true, customer: raj},
-  {paid: true, amount: 4900, currency: "usd", refunded: true, customer: raj},  
-)
+  {paid: true, amount: 4900, currency: "usd", refunded: true, customer: raj}  
+])
