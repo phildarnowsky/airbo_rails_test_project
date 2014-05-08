@@ -1,2 +1,11 @@
-%h1 Charges#index
-%p Find me in app/views/charges/index.html.haml
+%ul
+  %li{:style => 'background-color: '#ff0000'}
+    %h1 Failed Charges
+    = render 'fail', collection: @fails
+  %li{:style => 'background-color: '#ff5400'}
+    %h1 Disputed Charges
+    = render 'dispute', collection: @disputes
+  %li
+    %h1 Success Charges
+    = render 'charge', collection: @charges
+    
