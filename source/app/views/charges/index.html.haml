@@ -1,10 +1,31 @@
 %ul
   %li
     %h1 Failed Charges
-    = render 'fail', collection: @fails
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Amount
+          %th Date
+      %tbody
+        = render partial: 'fail', collection: @fails
   %li
     %h1 Disputed Charges
-    = render 'dispute', collection: @disputes
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Amount
+          %th Date
+      %tbody
+        = render partial: 'dispute', collection: @disputes
   %li
     %h1 Success Charges
-    = render 'charge', collection: @charges
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Amount
+          %th Date
+      %tbody
+        = render partial: 'charge', collection: @charges
