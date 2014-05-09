@@ -1,40 +1,60 @@
 # Rails Programming Task
 
-### In order to be considered for a Rails position, you must complete the following steps.
+### In order to be considered for a Rails position, you must complete the following steps. Read the instructions carefully.
 *Note: This task should take no longer than 1-2 hours at the most to complete.*
 
 
 ### Prerequisites
 
-- Please note that this will require some basic [Ruby on Rails](http://rubyonrails.org/) and [RSpec](http://rspec.info/) knowledge. 
+- This will require knowledge of Rails, RSpec, and Git.
 
-- You will need to have [Ruby on Rails](http://www.rubyonrails.org/) installed to complete this task. 
+- You will need to have Rails installed to do this task.
 
 ## Task
 
-- Fork this repository (if you don't know how to do that, Google is your friend).
+- Fork this repository.
 - Create a *source* directory.
-- In the *source* directory, scaffold a simple Rails 4 web app that models a credit card charge. JSON data structure below: 
+- In the *source* directory, generate a simple Rails 4 web app that models a credit card charge. Do not use scaffolding. The structure of the table is as follows:
 
 ```
-  {
-    "id": 9923,
-    "created": 1389618241,
-    "paid": true,
-    "amount": 4900,
-    "currency": "usd",
-    "refunded": false,
-    "customer_id" : 123
-  }
+    "paid": boolean, not null, default false
+    "amount": integer, not null, default 0
+    "currency": string, not null, default "usd", maximum length 5 characters
+    "refunded": boolean, not null, default false
 ```
 
-    *Note: Amount is in USD, cents*
+There should also be the standard Rails ID column, the "magic timestamps," and a customer_id column as a foreign key to the Customer model.
 
-- Also scaffold a customer object which only has a first and last name. 
+Amount is in USD, and is an integral number of cents. Hence 2317 = $23.17.
 
-*The charge object has a customer property, this property is the customer id from the customer model.*
+- Create a customer model which only has a first and last name. Do not use scaffolding. 
 
-##### Seed 4 Customers into the system:
+
+##### Create a Visual Representation of Different Charges:
+
+Add a :charges resource to routes.rb. On the view that shows all charges, create three lists with H1 headers. 
+
+Use ERB, not Haml. Write the controller from scratch, do not use scaffolding. 
+
+You can assume that the "created_at" timestamp is the time at which a charge failed, was disputed, or succeeded.
+
+Charge amounts should be formatted like "$14.12" and dates should be formatted like "May 9, 2014".
+
+- List 1 - 
+  - Header: Failed Charges
+  - In this list set the background color of the rows to #FF0000 and list the Customers name, the charge amount and the date that the charge failed for each failed charge. 
+
+- List 2 - 
+  - Header: Disputed Charges
+  - In this list set the background color of the rows to ##FF5400 and list the Customers name, the charge amount and the date that the charge was disputed for each disputed charge. 
+
+- List 3 - 
+  - Header: Successful Charges
+  - In this list simply display all the charges that were succesful. 
+
+### Tests
+
+#### Seed 4 Customers into the system using FactoryGirl:
 
     Customer 1: 
       First Name: Johny 
@@ -53,7 +73,7 @@
       Last Name: Smith
 
   
-##### Seed 20 transactions (charges) into the system:
+#### Seed 20 transactions (charges) into the system using FactoryGirl:
 
     10 Should be successful transactions:
       - 5 Should be linked to Customer 1
@@ -69,24 +89,7 @@
       - 3 should be linked to Customer 1
       - 2 should be linked to customer 2
 
-
-##### Create a Visual Representation of Different Charges:
-
-On the view that shows all charges (most likely the *GET /charges* route), create three lists with H1 headers. 
-
-- List 1 - 
-  - Header: Failed Charges
-  - In this list set the background color of the rows to #FF0000 and list the Customers name, the charge amount and the date that the charge failed for each failed charge. 
-
-- List 2 - 
-  - Header: Disputed Charges
-  - In this list set the background color of the rows to ##FF5400 and list the Customers name, the charge amount and the date that the charge was disputed for each disputed charge. 
-
-- List 3 - 
-  - Header: Successful Charges
-  - In this list simply display all the charges that were succesful. 
-
-### Tests
+#### Test functionality
 
 Create the following RSpec tests:
 
