@@ -1,0 +1,26 @@
+<% {@failed_charges => ['Failed', '#FF0000', 'failed'], @disputed_charges => ['Disputed', '#FF5400', 'disputed'], @successful_charges => ['Successful', '', 'successful']}.each do |k, v| %>
+  <h3><%= v[0]%> Charges</h3>
+  <table class=<%= v[2] %> >
+    <thead>
+      <tr>
+        <th>Sr.</th>
+        <th>Customer Name</th>
+        <th>Charge Amount</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% k.each_with_index do |charge, i| %>
+        <tr>
+          <%[i+1,charge.customer.full_name,charge.amount, *[charge.created_at,charge.updated_at].map{ |v|v.strftime("%d %M %Y") }].each do |g| %>
+            <td style="background-color: <%= v[1] %>">
+              <%= g %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
