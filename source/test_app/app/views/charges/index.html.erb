@@ -1,0 +1,37 @@
+<div id="charges">
+  <div class="failed">
+    <h1>Failed Charges</h1>
+
+    <ol>
+      <%- @failed.each do |charge| %>
+        <li>
+          <%= format_charge(charge) %>
+        </li>
+      <% end -%>
+    </ol>
+  </div>
+
+  <div class="disputed">
+    <h1>Disputed Charges</h1>
+
+    <ol>
+      <%- @disputed.each do |charge| %>
+        <li>
+          <%= format_charge(charge) %>
+        </li>
+      <% end -%>
+    </ol>
+  </div>
+
+  <div class="successful">
+    <h1>Successful Charges</h1>
+
+    <ol>
+      <%- @successful.each do |charge| %>
+        <li>
+          <%= format_charge(charge) %>
+        </li>
+      <% end -%>
+    </ol>
+  </div>
+</div>
